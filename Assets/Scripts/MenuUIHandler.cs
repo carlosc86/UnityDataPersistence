@@ -15,6 +15,7 @@ public class MenuUIHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PlayerManager.Instance.LoadPlayer();
         scoreText.SetText("Best Score: "+PlayerManager.Instance.GetBestPlayer()+" "+PlayerManager.Instance.GetBestScore());
         playerText.SetText("Player: "+PlayerManager.Instance.playerName); 
     }
@@ -34,5 +35,6 @@ public class MenuUIHandler : MonoBehaviour
     public void ChangePlayer(){
         PlayerManager.Instance.playerName=newPlayerName.text;
         playerText.SetText("Player: "+PlayerManager.Instance.playerName);
+        PlayerManager.Instance.SavePlayer();
     }
 }
